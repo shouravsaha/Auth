@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>Signin page</title>
 </head>
 
 <body>
@@ -24,26 +24,22 @@
 
                             <h3 class="mb-5">Sign in</h3>
 
-                            <div class="form-outline mb-4">
-                                <input type="text" id="typeEmailX-2" class="form-control form-control-lg"
-                                    name="phone" placeholder="Email" />
-                            </div>
-
-                            <div class="form-outline mb-4">
-                                <input type="password" id="typePasswordX-2" class="form-control form-control-lg"
-                                    name="password" placeholder="Password" />
-
-                            </div>
-
-
-
-                            <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
-
-                            <hr class="my-4">
-
-
+                            <form action="{{ route('user.login') }}" method="post">
+                                @csrf
+                                <div class="form-outline mb-4">
+                                    <input type="text" id="typeEmailX-2" class="form-control form-control-lg"
+                                        name="phone" placeholder="Phone Number" />
+                                </div>
+                                <div class="form-outline mb-4">
+                                    <input type="password" id="typePasswordX-2" class="form-control form-control-lg"
+                                        name="password" placeholder="Password" />
+                                </div>
+                                <button class="btn btn-primary btn-lg btn-block" type="submit">Sign In</button>
+                                <a href="{{ route('user.registration') }}">Signup</a>
+                            </form>
 
                         </div>
+
                     </div>
                 </div>
             </div>
