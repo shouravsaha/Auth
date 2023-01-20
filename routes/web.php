@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use Illuminate\Http\Request;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,5 +20,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('user-login', [AuthController::class, 'login'])->name('user.login');
-Route::get('user-registration', [AuthController::class, 'login'])->name('user.login');
+Route::get('/user-login', [AuthController::class, 'loginform'])->name('user.login');
+Route::get('/user-registration', [AuthController::class, 'registrationform'])->name('user.registration');
+
+Route::post('/user-login', [AuthController::class, 'login'])->name('user.login');
+
+Route::get('user-balance', [AuthController::class, 'getRemainingBalance'])->middleware('isLoggedIn');
